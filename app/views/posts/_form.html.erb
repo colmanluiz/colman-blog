@@ -1,0 +1,27 @@
+<%= form_with model: @post do |f| %>
+  <div>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+    <% @post.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.label :body %><br>
+    <%= f.textarea :body %>
+    <% @post.errors.full_messages_for(:body).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= f.label :status %><br>
+    <%= f.select :status, Visible::VALID_STATUSES, selected: post.status %>
+  </div>
+  
+  <div>
+    <%= f.submit %>
+  </div>
+
+<% end %>
