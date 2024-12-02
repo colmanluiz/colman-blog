@@ -29,7 +29,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_11_27_191037) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "status", default: "public"
+    t.string "status"
     t.datetime "published_at"
   end
 

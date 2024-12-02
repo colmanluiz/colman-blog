@@ -6,6 +6,7 @@ class Post < ApplicationRecord
   validates :title, presence: true
   validates :body, presence: true, length: { minimum: 10 }
 
+  scope :sorted, -> { order(published_at: :desc, updated_at: :desc) }
   scope :draft, -> { where(publlished_at: nil) }
   scope :published, -> { where("published_at <= ?", Time.current) }
   scope :scheduled, -> { where("published_at > ?", Time.current) }
